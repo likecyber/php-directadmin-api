@@ -90,9 +90,9 @@ $da->logout(true); // Logout from both accounts and reset DirectAdmin Credential
 You can execute all commands those available under your authority level by $this->query() function.
 
 ```php
-// - $command : DirectAdmin Command. (Should starts with "CMD_API_")
-// - $form : Fields and Values to execute command. (Should be Array or Null)
-// - $method : Method to execute command. (GET/POST)
+// - (string) $command : DirectAdmin Command. (Should starts with "CMD_API_")
+// - (null/array/string) $form : Fields and Values to execute command. (Should be Array or Null)
+// - (string) $method : Method to execute command. (GET/POST)
 $result = $da->query($command, $form, $method);
 ```
 
