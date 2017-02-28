@@ -82,7 +82,12 @@ class DirectAdmin {
 			CURLOPT_POSTFIELDS => $method !== "GET" ? $form : null
 		));
 		$response = curl_exec($this->handle);
-		return $this->parse($response, false, $command);
+		if (curl_errno($this->handle) === 0) {
+			return $this->parse($response, false, $command);
+		} else {
+			$this->error = true;
+			return $response;
+		}
 	}
 
 	public function parse($response, $force = true, $command = "CMD_API_") {
